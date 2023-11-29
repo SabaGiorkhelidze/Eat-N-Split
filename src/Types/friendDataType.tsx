@@ -1,4 +1,4 @@
-export type FriendsDataType = {
+export interface FriendDataType {
   id: number;
   name: string;
   image: string;

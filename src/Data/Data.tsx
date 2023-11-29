@@ -1,6 +1,6 @@
-import { FriendsDataType } from "../Types/SampleFriendsDataType";
+import { FriendDataType } from "../Types/friendDataType";
 
-export const initialFriends: FriendsDataType[] = [
+export const initialFriends: FriendDataType[] = [
   {
     id: 118836,
     name: "Clark",
