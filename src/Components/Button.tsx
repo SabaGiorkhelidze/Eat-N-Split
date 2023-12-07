@@ -1,9 +1,6 @@
-interface btnProp {
-  children: string;
-  onClick: () => void
-}
+import { BtnPropTypes } from "../Types/ButtonType";
 
-const Button = ({ children, onClick }: btnProp) => {
+const Button = ({ children, onClick }: BtnPropTypes) => {
   return (
     <>
       <button className="button" onClick={onClick}>{children}</button>

@@ -1,10 +1,21 @@
 import { FriendDataType } from "../Types/friendDataType";
 import Button from "./Button";
 
-const Friend = ({ friend }: { friend: FriendDataType }) => {
+interface FriendComponentPropsDataType {
+  friend: FriendDataType;
+  onSelection: (friend: FriendDataType) => void;
+  selectedFriend: FriendDataType | null;
+}
+
+const Friend = ({
+  friend,
+  onSelection,
+  selectedFriend,
+}: FriendComponentPropsDataType) => {
+  const isSelected: boolean = selectedFriend?.id === friend.id;
   return (
     <>
-      <li>
+      <li className={isSelected ? 'selected': ''}>
         <img src={friend.image} alt={friend.name} />
         <h3>{friend.name}</h3>
         {friend.balance > 0 && (
@@ -19,7 +30,7 @@ const Friend = ({ friend }: { friend: FriendDataType }) => {
         )}
         {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-        <Button>Select</Button>
+        <Button onClick={() => onSelection(friend)}>Select</Button>
       </li>
     </>
   );

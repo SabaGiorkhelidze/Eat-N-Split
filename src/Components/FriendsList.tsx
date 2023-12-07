@@ -1,13 +1,18 @@
-import { initialFriends } from "../Data/Data";
 import { FriendDataType } from "../Types/friendDataType";
 import Friend from "./Friend";
 
-const FriendsList = () => {
+interface FriendsListDataType {
+  Friends: FriendDataType[];
+  onSelection: (selectedFriend: FriendDataType) => void;
+  selectedFriend: FriendDataType | null;
+}
+
+const FriendsList = ({ Friends, onSelection, selectedFriend }: FriendsListDataType) => {
   return (
     <>
       <ul>
-        {initialFriends.map((friend: FriendDataType) => (
-          <Friend key={friend.id} friend={friend} />
+        {Friends.map((friend: FriendDataType) => (
+          <Friend key={friend.id} friend={friend} onSelection={onSelection} selectedFriend={selectedFriend}/>
         ))}
       </ul>
     </>
